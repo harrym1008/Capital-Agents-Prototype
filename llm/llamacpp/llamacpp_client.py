@@ -17,6 +17,16 @@ class LlamaCppClient(BaseLLMClient):
         extraBody = {}
         if thinkingBudget is not None:
             extraBody["thinking_budget_tokens"] = thinkingBudget
+            extraBody["reasoning_budget"] = thinkingBudget            
+
+            if thinkingBudget <= 256:
+                reasoningEffort = "low"
+            elif thinkingBudget <= 2048:
+                reasoningEffort = "medium"
+            else:
+                reasoningEffort = "high"
+            extraBody["reasoning_effort"] = reasoningEffort
+            
         return extraBody
     
     def _applyRateLimit(self):

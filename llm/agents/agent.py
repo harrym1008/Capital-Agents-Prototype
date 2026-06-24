@@ -49,7 +49,7 @@ class FinancialAgent:
     def analyseAndReply(self, 
             incomingMessage: str, 
             responsePrintRawAnalysis: ResponsePrintMode = ResponsePrintMode.FULL,
-            responsePrintUISummary: ResponsePrintMode = ResponsePrintMode.ONE_TOKEN_ONLY,
+            responsePrintUISummary: ResponsePrintMode = ResponsePrintMode.FULL,
             summarisationOverride: Optional[bool] = None
         ):
         generateSummary = SUMMARISE_ENABLED if summarisationOverride is None else summarisationOverride

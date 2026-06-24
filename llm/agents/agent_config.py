@@ -2,8 +2,8 @@ from typing import List, Optional
 from other.ansi import ANSI
 
 
-THINKING_BUDGET = 2560
-SUMMARISE_THINK_BUDGET = 256
+THINKING_BUDGET = 2048
+SUMMARISE_THINK_BUDGET = 128
 
 
 class FinancialAgentConfig:
@@ -109,6 +109,8 @@ def buildUIFormatSysPrompt(config: FinancialAgentConfig) -> str:
         f"- {agentSpecificPrompt}"
         f"... they must be on their own final line, no other text should be on the same line as these keys."
         f"If these metrics do not exist (like inside Phase 3), you can remove them. If none of them appear, remove the whole final line. \n"
+
+        f"\nYou are permitted minimal thinking time, so layout your final response and then produce it immediately. Do not overthink.\n"
 
         f"Base your summary entirely on the raw internal analysis provided in the message. Do not add your own external facts, "
         f"and do not lose the core quantitative targets, arguments, or numbers from the raw source.\n\n"
