@@ -29,7 +29,7 @@ class FinancialAgent:
 
     def executeInternalAnalysis(self, incomingMessage: str, responsePrint: ResponsePrintMode = ResponsePrintMode.FULL):
         self.messageHistory.append({"role": "user", "content": incomingMessage})
-        print(f"\n{self.color}{ANSI.BOLD}========== [{self.agentRole}] is analyzing... =========={ANSI.RESET}", end="")
+        print(f"\n{self.color}{ANSI.BOLD}========== [{self.agentRole}] is analysing... =========={ANSI.RESET}", end="")
         
         rawAnalysis = self.apiClient.runConversation(self.messageHistory, self.tools, THINKING_BUDGET, responsePrint)
         self.messageHistory.append({"role": "assistant", "content": rawAnalysis})
@@ -49,7 +49,7 @@ class FinancialAgent:
     def analyseAndReply(self, 
             incomingMessage: str, 
             responsePrintRawAnalysis: ResponsePrintMode = ResponsePrintMode.FULL,
-            responsePrintUISummary: ResponsePrintMode = ResponsePrintMode.FULL,
+            responsePrintUISummary: ResponsePrintMode = ResponsePrintMode.ONE_TOKEN_ONLY,
             summarisationOverride: Optional[bool] = None
         ):
         generateSummary = SUMMARISE_ENABLED if summarisationOverride is None else summarisationOverride

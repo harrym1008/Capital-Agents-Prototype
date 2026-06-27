@@ -276,7 +276,7 @@ class BoardroomEngine:
         
         print(shortConvSummary)
 
-        with open(f"output\\{targetTicker}_fast_{startTime.strftime('%Y-%m-%d_%H-%M-%S')}.ans", "w", encoding="utf-8") as f:
+        with open(f"output\\{targetTicker}_full_{startTime.strftime('%Y-%m-%d_%H-%M-%S')}.ans", "w", encoding="utf-8") as f:
             f.write(fullConvSummary)       
         
 

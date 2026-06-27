@@ -65,14 +65,9 @@ def runBoardroom(llmClient: LLMClient, model: str | LlamaCppModel, tickerToEval:
 
 
 if __name__ == "__main__":
-    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="TSLA", fastMode=False)
-    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="SPCX", fastMode=True)
-    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="NVDA", fastMode=False)
-    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="AMD", fastMode=True)
-    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="GOOGL", fastMode=False)
-
+    runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="MU", fastMode=False)
 
     # runBoardroom(llmClient=LLMClient.OpenRouter, model="openai/gpt-oss-20b:free::darkbloom", tickerToEval="ASTS")
-    # runBoardroom(llmClient=LLMClient.OpenRouter, model="deepseek/deepseek-v4-flash::baidu", tickerToEval="NFLX")
+    # runBoardroom(llmClient=LLMClient.OpenRouter, model="openrouter/owl-alpha", tickerToEval="NFLX")
     # runBoardroom(llmClient=LLMClient.Groq, model="openai/gpt-oss-120b", tickerToEval="MU")
 

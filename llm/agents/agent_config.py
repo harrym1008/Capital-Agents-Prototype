@@ -3,7 +3,7 @@ from other.ansi import ANSI
 
 
 THINKING_BUDGET = 2048
-SUMMARISE_THINK_BUDGET = 128
+SUMMARISE_THINK_BUDGET = 180
 
 
 class FinancialAgentConfig:
@@ -37,9 +37,10 @@ def buildResearcherSysPrompt(config: FinancialAgentConfig, dateStr: str) -> str:
         f"Use tools exclusively for data retrieval - never supplement with assumed or recalled facts.\n"
 
         f"\n\n"
-        f"*** CALCULATIONS ***: Never perform arithmetic in your head. "
+        f"*** CALCULATIONS ***: Never perform arithmetic in your head. \n"
         f"Always use the 'executePythonCalculation' tool - assume any mental calculation is wrong. "
-        f"Scripts must be <=20 lines. Combine all calculations into one call. Print only final metric values - no headers, no intermediate steps. "
+        f"'executePythonCalculation' SHOULD ONLY BE USED FOR ARITHMETIC, and code should be written in shorthand, no formatting in the printed output."
+        f"Scripts MUST BE <=20 lines. Only use this tool to calculate arithmetic and mathematical models, do not perform logical reasoning. \n"
         f"SILENT DISPATCH: Do not narrate, preview, or show code before calling the tool. Call it immediately and silently. "
         f"Immediately resume reasoning after the Python tool returns, you must analyse its outputs (at least briefly) before proceeding.\n"
 
@@ -53,7 +54,7 @@ def buildResearcherSysPrompt(config: FinancialAgentConfig, dateStr: str) -> str:
         f"  - NO OUTPUT DRAFTING IN THINKING: Never write your final response, narrative paragraphs, or markdown tables inside your thinking block. "
         f"Thinking is for data extraction and key observations only. The full response is written once, after thinking ends.\n"
         f"  - NO VERIFICATION CHECKLISTS: Do not run a checklist of requirements at the end of your thinking. Do not re-read data you have already noted. Trust your analysis and write the response.\n"
-        f"- When resuming after a tool execution, pick up exactly where you left off. Never repeat headers or meta-commentary already written.\n"
+        f"- After tool results are returned, you MUST analyse them before writing anything. Extract the key data points, cross-reference figures, and form conclusions from the actual returned values. Do not continue from your pre-tool plan — the plan was only a scaffold; the data is the truth.\n"
 
         f"\n\n"
         f"*** WRITTEN OUTPUT RULES ***:\n"
