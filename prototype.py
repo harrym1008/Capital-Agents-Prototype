@@ -67,7 +67,3 @@ def runBoardroom(llmClient: LLMClient, model: str | LlamaCppModel, tickerToEval:
 if __name__ == "__main__":
     runBoardroom(llmClient=LLMClient.LlamaCpp, model=LlamaCppModel.GEMMA_4_12B, tickerToEval="MU", fastMode=False)
 
-    # runBoardroom(llmClient=LLMClient.OpenRouter, model="openai/gpt-oss-20b:free::darkbloom", tickerToEval="ASTS")
-    # runBoardroom(llmClient=LLMClient.OpenRouter, model="openrouter/owl-alpha", tickerToEval="NFLX")
-    # runBoardroom(llmClient=LLMClient.Groq, model="openai/gpt-oss-120b", tickerToEval="MU")
-
